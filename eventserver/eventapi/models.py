@@ -3,13 +3,15 @@ from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 
-class User(models.Model):
-    email=models.EmailField(unique=True)
-    first_name=models.CharField(max_length=255)
-    last_name=models.CharField(max_length=255)
+class User(AbstractUser):
+    username = models.CharField(max_length=100)
+    email = models.EmailField(unique=True)
+
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['username']
     
     def __str__(self):
-        return self.email
+        return self.username
 
 class EventCategory(models.Model):
     name = models.CharField(max_length=255)
@@ -70,6 +72,7 @@ class Venue(models.Model):
     country = models.CharField(max_length=100)
     capacity = models.IntegerField()
     description = models.TextField()
+    image = models.ImageField(upload_to='uploads/images')
     created=models.DateTimeField(auto_now_add=True)
     modified=models.DateTimeField(auto_now=True)
 

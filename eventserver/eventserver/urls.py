@@ -18,6 +18,8 @@ from django.contrib import admin
 from django.urls import path,include
 from eventapi.views import *
 from rest_framework import routers
+from django.conf import settings
+from django.conf.urls.static import static
 
 route =routers.DefaultRouter()
 route.register('user',UserView,basename = 'user')
@@ -37,4 +39,4 @@ route.register('payment',PaymentView,basename = 'payment')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(route.urls)),
-]
+]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
