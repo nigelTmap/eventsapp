@@ -72,7 +72,7 @@ class Venue(models.Model):
     country = models.CharField(max_length=100)
     capacity = models.IntegerField()
     description = models.TextField()
-    image = models.ImageField(upload_to='uploads/images')
+    image = models.ImageField(upload_to='uploads/images',blank=True,null=True)
     created=models.DateTimeField(auto_now_add=True)
     modified=models.DateTimeField(auto_now=True)
 

@@ -5,7 +5,7 @@ from .models import *
 
 class UserAdmin(admin.ModelAdmin):
     list_display = ['username', 'email']
-admin.site.register(User)
+admin.site.register(User,UserAdmin)
 
 class EventCategoryAdmin(admin.ModelAdmin):
     search_fields=('name','description')
