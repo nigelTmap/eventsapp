@@ -21,8 +21,9 @@ from rest_framework import routers
 from django.conf import settings
 from django.conf.urls.static import static
 
+
 route =routers.DefaultRouter()
-route.register('user',UserView,basename = 'user')
+route.register('users',UserViewSet,basename = 'users')
 route.register('eventcategory',EventCategoryView,basename = 'eventcategory')
 route.register('eventsubcategory',EventSubCategoryView,basename = 'eventsubcategory')
 route.register('event',EventView,basename = 'event')
